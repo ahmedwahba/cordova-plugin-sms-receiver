@@ -32,19 +32,19 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 
 public class SmsReceiver extends BroadcastReceiver {
-	
+
 
 	public static final String SMS_EXTRA_NAME = "pdus";
 	private CallbackContext callback_receive;
 	private boolean isReceiving = true;
-	
+
 	// This broadcast boolean is used to continue or not the message broadcast
 	// to the other BroadcastReceivers waiting for an incoming SMS (like the native SMS app)
-	private boolean broadcast = false;
-	
+	private boolean broadcast = true;
+
 	@Override
 	public void onReceive(Context ctx, Intent intent) {
-		
+
 		// Get the SMS map from Intent
 	    Bundle extras = intent.getExtras();
 	    if (extras != null)
@@ -69,11 +69,11 @@ public class SmsReceiver extends BroadcastReceiver {
 			}
 	     }
 	}
-	
+
 	public void broadcast(boolean v) {
 		this.broadcast = v;
 	}
-	
+
 	public void startReceiving(CallbackContext ctx) {
 		this.callback_receive = ctx;
 		this.isReceiving = true;
