@@ -31,7 +31,6 @@ import org.json.JSONObject;
 
 import android.os.Build;
 import android.Manifest;
-import android.support.v4.app.ActivityCompat;
 import android.app.Activity;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
